@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./bower_components/angular/angular.min.js"></script>
+	<script src="./app.js"></script>
+</head>
+<body ng-controller='listCtrl'>
+	<h1>This is my todo-list by MEAN(MongoDB+express+Angular+NodeJs)</h1>
+	<ul>
+		<li ng-repeat='item in todos'>
+			{{item.text}}
+			<input type="button" value="删除" ng-click="deleteTodo(item._id)">
+		</li>
+	</ul>
+	<label for="newitem">添加新的待办事项</label>
+	<input id='new-item' type="text" ng-model="formdata.text">
+	<input type="button" ng-click="createTodo()" value="添加">
+</body>
+</html>
