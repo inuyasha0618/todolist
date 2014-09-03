@@ -12,7 +12,7 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
-// app.use(app.router);
+// app.use(app.router); 
 
 app.get('/todolist',function(req,res){
 	TodoModel.find(function(err,data){
@@ -50,4 +50,4 @@ app.delete('/todolist/:id',function(req,res){
 
 app.listen(3000,function(){
 	console.log('App is listening on port 3000');
-}); 
+}) ; 
