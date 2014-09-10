@@ -1,17 +1,41 @@
 .list{
-	transition:.5s ease-in all;
-	-webkit-transition:.5s ease-in all;
-	border: 2px rgba(0,0,0,0.3) solid;
-	box-shadow: 2px 2px 1px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
 	height: 45px;
 	line-height: 45px;
 	position: relative;
 }
 
 .list.ng-leave{
+	transition:.5s ease-in all;
+	-webkit-transition:.5s ease-in all;
 	left: 0;
 }
 
 .list.ng-leave.ng-leave-active{
-	left:1366px;
+	left:1000px;
+}
+
+.list.ng-enter{
+	-webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-webkit-transform: rotateX(90deg) rotateZ(90deg);
+	-moz-transform: rotateX(90deg) rotateZ(90deg);
+	-ms-transform: rotateX(90deg) rotateZ(90deg);
+	-o-transform: rotateX(90deg) rotateZ(90deg);
+	transform: rotateX(90deg) rotateZ(90deg);
+	opacity: 0;
+	height: 0px;
+}
+
+.list.ng-enter.ng-enter-active{
+	-webkit-transform: rotateX(0deg) rotateZ(0deg);
+	-moz-transform: rotateX(0deg) rotateZ(0deg);
+	-ms-transform: rotateX(0deg) rotateZ(0deg);
+	-o-transform: rotateX(0deg) rotateZ(0deg);
+	transform: rotateX(0deg) rotateZ(0deg);
+	opacity: 1;
+	height: 45px;
 }
