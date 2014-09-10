@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="./bower_components/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/animation.css">
 	<style>
 		#box{
 			height: 400px;
@@ -14,20 +15,21 @@
 			overflow-x: hidden;
 		}
 	</style>
-	<script src="./bower_components/angular/angular.min.js"></script>
-	<script src="./js/app.js"></script>
-	<script src="./js/services.js"></script>
 </head>
 <body ng-controller='listCtrl'>
 	<div class="container">
 		<h1>This is my todo-list by MEAN(MongoDB+express+Angular+NodeJs)</h1>
-		<div id="box">
-			<div class="row" ng-repeat="item in todos" style="margin-bottom:10px">
-				<div class="col-md-5 col-md-offset-2">
-					{{item.text}}
-				</div>
-				<div class="col-md-1">
-					<button class="btn btn-danger" ng-click="deleteTodo(item)">删除</button>
+		<div class="row">
+			<div id="box" class="col-md-8 col-md-offset-2">
+				<div class="row">
+					<div class="row list col-md-10 col-md-offset-1" ng-repeat="item in todos" style="margin-bottom:10px">
+						<div class="col-md-8 col-md-offset-2">
+							{{item.text}}
+						</div>
+						<div class="col-md-1">
+							<button class="btn btn-danger" ng-click="deleteTodo(item)">删除</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -42,5 +44,9 @@
 		</div>
 		
 	</div>
+	<script src="./bower_components/angular/angular.min.js"></script>
+	<script src="./bower_components/angular/angular-animate.min.js"></script>
+	<script src="./js/app.js"></script>
+	<script src="./js/services.js"></script>
 </body>
 </html>

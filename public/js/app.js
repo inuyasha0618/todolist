@@ -1,4 +1,4 @@
- var app = angular.module('app',['app.services']);
+ var app = angular.module('app',['ngAnimate','app.services']);
 app.controller('listCtrl',['$scope','getData','postData','delData',function($scope,getData,postData,delData){
 	$scope.todos = [];
 	$scope.formdata = {text:""};
