@@ -9,7 +9,8 @@ app.controller('listCtrl',['$scope','getData','postData','delData',function($sco
 	$scope.createTodo = function(){
 		if($scope.formdata.text !== ""){
 			    postData.post($scope.formdata).success(function(data){
-				$scope.todos = data;
+			    console.log(data);
+				$scope.todos.push(data);
 				$scope.formdata = {text:""};
 			});
 		}else{
@@ -18,9 +19,14 @@ app.controller('listCtrl',['$scope','getData','postData','delData',function($sco
 		
 	}
 
-	$scope.deleteTodo = function(id){
-		delData.delete(id).success(function(data){
-			$scope.todos = data;
+	$scope.deleteTodo = function(item){
+		delData.delete(item._id).success(function(data){
+			for(var i = 0;i < $scope.todos.length;i++){
+				if($scope.todos[i] == item){
+					$scope.todos.splice(i,1);
+					break;
+				}
+			}
 		});
 	}
 }])

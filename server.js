@@ -27,10 +27,7 @@ app.post('/todolist',function(req,res){
 	var newItem =new TodoModel({text: req.body.text});
 	newItem.save(function(err,newItem){
 		if(err) console.error(err);
-		TodoModel.find(function(err,data){
-			if(err) return console.error(err);
-			res.json(data);
-		})
+		res.json(newItem);
 	})
 });
 
@@ -39,12 +36,7 @@ app.delete('/todolist/:id',function(req,res){
 		if(err){
 			return console.error(err);
 		}
-		TodoModel.find(function(err,data){
-			if(err){
-				return console.error(err);
-			}
-			res.json(data);
-		})
+		res.json({"status":"success"})
 	})
 })
 

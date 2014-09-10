@@ -1,14 +1,14 @@
-var app = angular.module('app',[]);
-app.controller('listCtrl',['$scope','$http',function($scope,$http){
+ var app = angular.module('app',['app.services']);
+app.controller('listCtrl',['$scope','getData','postData','delData',function($scope,getData,postData,delData){
 	$scope.todos = [];
 	$scope.formdata = {text:""};
-	$http.get('/todolist').success(function(data){
+	getData.fetch().success(function(data){
 		$scope.todos = data;
 	});
 
 	$scope.createTodo = function(){
 		if($scope.formdata.text !== ""){
-			$http.post('/todolist',$scope.formdata).success(function(data){
+			    postData.post($scope.formdata).success(function(data){
 				$scope.todos = data;
 				$scope.formdata = {text:""};
 			});
@@ -19,7 +19,7 @@ app.controller('listCtrl',['$scope','$http',function($scope,$http){
 	}
 
 	$scope.deleteTodo = function(id){
-		$http.delete('/todolist/' + id).success(function(data){
+		delData.delete(id).success(function(data){
 			$scope.todos = data;
 		});
 	}
