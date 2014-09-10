@@ -3,20 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="./bower_components/bootstrap.min.css">
+	<style>
+		#box{
+			height: 400px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+	</style>
 	<script src="./bower_components/angular/angular.min.js"></script>
 	<script src="./js/app.js"></script>
 	<script src="./js/services.js"></script>
 </head>
 <body ng-controller='listCtrl'>
-	<h1>This is my todo-list by MEAN(MongoDB+express+Angular+NodeJs)</h1>
-	<ul>
-		<li ng-repeat='item in todos'>
-			{{item.text}}
-			<input type="button" value="删除" ng-click="deleteTodo(item)">
-		</li>
-	</ul>
-	<label for="newitem">添加新的待办事项</label>
-	<input id='new-item' type="text" ng-model="formdata.text">
-	<input type="button" ng-click="createTodo()" value="添加">
+	<div class="container">
+		<h1>This is my todo-list by MEAN(MongoDB+express+Angular+NodeJs)</h1>
+		<div id="box">
+			<div class="row" ng-repeat="item in todos" style="margin-bottom:10px">
+				<div class="col-md-5 col-md-offset-2">
+					{{item.text}}
+				</div>
+				<div class="col-md-1">
+					<button class="btn btn-danger" ng-click="deleteTodo(item)">删除</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-5 col-md-offset-2">
+				<input id='new-item' class="form-control" type="text" placeholder="添加新待办事项" ng-model="formdata.text">
+			</div>
+			<div class="col-md-1">
+				<button class="btn btn-info" ng-click="createTodo()">Add</button>
+			</div>
+		</div>
+		
+	</div>
 </body>
 </html>
